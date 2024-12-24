@@ -1,0 +1,28 @@
+
+
+pool: BinduPool
+
+stages:
+- stage: stage1
+  jobs:
+  - job: Firstjob
+    steps:
+    - script: echo Hello from first job/stage
+    
+
+- stage: stage2
+  jobs:
+  - job: Firstjob
+    steps: 
+    - script: echo Hello from second job/stage
+
+- stage: stage3
+  dependsOn: 
+  - stage1
+  - stage2
+  
+  
+  jobs:
+  - job: job1
+    steps:
+    - script: echo Hello From Third job/stage
