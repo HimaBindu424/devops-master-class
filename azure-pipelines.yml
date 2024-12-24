@@ -17,6 +17,7 @@ stages:
     - script: echo Hello from second job/stage
 
 - stage: stage3
+  dependsOn: stage1
   jobs:
   - job: job1
     steps:
