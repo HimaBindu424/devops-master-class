@@ -1,14 +1,23 @@
 
-trigger:
-- master
 
 pool: BinduPool
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: stage1
+  jobs:
+  - job: Firstjob
+    steps:
+    - script: echo Hello from first job/stage
+    
 
-- script: |
-    echo Hello Bindu.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- stage: stage2
+  jobs:
+  - job: Firstjob
+    steps: 
+    - script: echo Hello from second job/stage
+
+- stage: stage3
+  jobs:
+  - job: job1
+    steps:
+    - script: echo Hello From Third job/stage
